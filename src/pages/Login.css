@@ -1,0 +1,73 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #1b1b1b;
+}
+
+.flex-container {
+    display: flex;
+    height: 100vh;
+}
+
+.login-container {
+    width: 80%;
+    padding: 100%;
+    border: 80% solid #171817;
+    border-radius: 4px;
+}
+
+.name-container {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    color: rgb(221, 98, 10);
+    text-align: center;
+    margin-bottom: 1%;
+}
+
+label {
+    margin-bottom: 0,5%;
+    display: block;
+    color: rgb(221, 98, 10);
+}
+
+input {
+    width: 100%;
+    padding: 5%;
+    border: 1px solid #000000;
+    border-radius: 1%;
+    margin-bottom: 3%;
+    background-color: rgb(221, 98, 10);
+    color:#000000
+}
+
+#email::placeholder {
+    color: rgb(0, 0, 0); 
+}
+#senha::placeholder {
+    color: rgb(0, 0, 0); 
+}
+
+
+button {
+    width: 111%;
+    padding: 10px;
+    background-color: gray;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .flex-container {
+        flex-direction: column;
+    }
+    
+    .login-container, .name-container {
+        width: 50%;
+    }
+}
