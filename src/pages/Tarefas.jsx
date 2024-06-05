@@ -1,22 +1,42 @@
-import { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import './Tarefas.css'; // Import your CSS file if applicable
 
+const Tarefas = () => {
+  const [tarefas, setTarefas] = useState([]); // Array to store tasks
 
-function Tarefas(){
+  const adicionarTarefa = (novaTarefa) => {
     
     
-    return(
-        <main class="flex-container">
-        <div class="name-container">
-            <h1>Suas tarefas</h1>
-        </div>
-        <div class="tarefas-container">
-            <ol id="lista-tarefas">
+    setTarefas([...tarefas, novaTarefa]);
+  };
 
-            </ol>
-            <button id="addTarefa" onclick="adicionarTarefa()">Adicionar Tarefa</button>
-            <button id="addTarefa" onclick="removerTarefa()">Remove Tarefa</button>
-        </div>
+  const removerTarefa = (index) => {
+    // Logic to remove a task from the 'tarefas' array based on index
+    const updatedTarefas = [...tarefas];
+    updatedTarefas.splice(index, 1);
+    setTarefas(updatedTarefas);
+  };
+
+  return (
+    <main className="flex-container">
+      <div className="name-container">
+        <h1>Suas tarefas</h1>
+      </div>
+      <div className="tarefas-container">
+        <ol id="lista-tarefas">
+          {tarefas.map((tarefa, index) => (
+            <li key={index}>{tarefa}</li>
+          ))}
+        </ol>
+        <button id="addTarefa" onClick={() => adicionarTarefa('Nova Tarefa')}>
+          Adicionar Tarefa
+        </button>
+        <button id="removeTarefa" onClick={() => removerTarefa(0)}> 
+          Remover Tarefa
+        </button>
+      </div>
     </main>
-    )
-}
+  );
+};
+
+export default Tarefas;
